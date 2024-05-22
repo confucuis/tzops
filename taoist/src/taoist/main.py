@@ -44,6 +44,7 @@ def main():
     )
 
     try:
+        logger.info("Server Start On http://0.0.0.0:7000")
         server = uvicorn.Server(setting)
         asyncio.run(server.run())
     except KeyboardInterrupt:
