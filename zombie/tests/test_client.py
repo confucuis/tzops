@@ -4,7 +4,7 @@ from twisted.internet import reactor, protocol
 class EchoClient(protocol.Protocol):
     def connectionMade(self):
         # 当与服务器建立连接时，发送一条消息
-        self.transport.write(b"Hello, server!")
+        self.transport.write(rb"Hello, server!")
 
     def dataReceived(self, data):
         # 收到服务器的回复后，将其打印出来
@@ -15,12 +15,12 @@ class EchoClient(protocol.Protocol):
 
 class EchoClientFactory(protocol.ClientFactory):
     def buildProtocol(self, addr):
-        print(addr)
+        print(f"Server Address: {addr}")
         return EchoClient()
 
     def clientConnectionFailed(self, connector, reason):
         print(connector)
-        print(reason)
+        print(reason.value)
         print("Connection failed.")
         reactor.stop()
 
