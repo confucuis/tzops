@@ -1,9 +1,9 @@
 import asyncio
 import uvicorn
 
-from fastapi import FastAPI
 import uvicorn.config
 import uvicorn.server
+from fastapi import FastAPI
 from taoist.router import user, role
 from taoist.log import UVICORN_CONFIG, logger, Color
 
