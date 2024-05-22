@@ -32,6 +32,7 @@ def main():
         host="0.0.0.0",
         port=7000,
         reload=True,
+        log_level="error",
         log_config=UVICORN_CONFIG,
     )
 
