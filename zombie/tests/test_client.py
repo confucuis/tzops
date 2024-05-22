@@ -15,18 +15,23 @@ class EchoClient(protocol.Protocol):
 
 class EchoClientFactory(protocol.ClientFactory):
     def buildProtocol(self, addr):
+        print(addr)
         return EchoClient()
 
     def clientConnectionFailed(self, connector, reason):
+        print(connector)
+        print(reason)
         print("Connection failed.")
         reactor.stop()
 
     def clientConnectionLost(self, connector, reason):
+        print(connector)
+        print(reason)
         print("Connection lost.")
         reactor.stop()
 
 
 # 创建一个 TCP 客户端，连接到指定的服务器和端口
-reactor.connectTCP("localhost", 1234, EchoClientFactory())
+reactor.connectTCP("localhost", 8000, EchoClientFactory())
 # 启动事件循环
 reactor.run()

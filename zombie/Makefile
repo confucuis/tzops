@@ -6,7 +6,7 @@ BUILD := build
 TARGET := zombie.pyz
 SRC := src/*
 ENTRYPOINT := zombie.main:main
-LIBS := .venv/lib/python3.10/site-packages/*
+LIBS := .venv/lib/python3.12/site-packages/*
 
 build:
 	[ ! -d $(BUILD) ] && mkdir $(BUILD)
