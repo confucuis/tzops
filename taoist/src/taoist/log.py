@@ -1,4 +1,12 @@
+import logging
 from uvicorn.config import LOGGING_CONFIG
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+logger = logging.getLogger(__name__)
 
 # 复制默认配置
 UVICORN_CONFIG = LOGGING_CONFIG.copy()

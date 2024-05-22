@@ -1,24 +1,16 @@
 import asyncio
-import logging
 import uvicorn
 
 from fastapi import FastAPI
 import uvicorn.config
 import uvicorn.server
 from taoist.router import user
-from taoist.config import UVICORN_CONFIG
+from taoist.log import UVICORN_CONFIG, logger
 
 
 app = FastAPI(debug=True)
 
 app.include_router(user.router)
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
-)
-logger = logging.getLogger(__name__)
 
 
 TAOIST = """
