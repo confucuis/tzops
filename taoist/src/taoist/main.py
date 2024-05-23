@@ -1,8 +1,5 @@
 import asyncio
-import uvicorn
 
-import uvicorn.config
-import uvicorn.server
 from fastapi import FastAPI
 from taoist.router import user, role
 from taoist.log import UVICORN_CONFIG, logger, Color
@@ -25,6 +22,8 @@ TAOIST = r"""
 
 
 def main():
+    import uvicorn
+
     logger.info(Color.YELLOW + TAOIST + Color.RESET)
 
     setting = uvicorn.Config(
@@ -32,7 +31,7 @@ def main():
         host="0.0.0.0",
         port=7000,
         reload=True,
-        log_level="error",
+        log_level="info",
         log_config=UVICORN_CONFIG,
     )
 
