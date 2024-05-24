@@ -1,3 +1,5 @@
+# 项目打包成可执行程序
+# python3 setup.py bdist_wheel
 from setuptools import setup, find_packages
 
 setup(
@@ -7,7 +9,7 @@ setup(
     package_dir={"": "src"},
     entry_points={
         "console_scripts": [
-            "taoist = taoist.__main__:main"
+            "taoist = taoist.main:main"
         ]
     },
 )

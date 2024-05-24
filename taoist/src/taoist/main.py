@@ -32,6 +32,7 @@ def main():
         port=7000,
         reload=True,
         log_level="info",
+        workers=1,  # 配置多个进程运行
         log_config=UVICORN_CONFIG,
     )
 

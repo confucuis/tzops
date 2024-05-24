@@ -1,9 +1,11 @@
+import time
 from fastapi import APIRouter
 
 
 router = APIRouter(prefix="/user")
 
 
-@router.post("/login")
+@router.get("/login")
 async def login():
+    time.sleep(10)
     return "login success !"
