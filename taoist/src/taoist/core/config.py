@@ -27,12 +27,17 @@ class Settings(BaseSettings):
     app_version: str = "0.0.1"
     app_summary: str
     app_description: str
+    app_prefix: str | None = None
+    app_secret: str | None = None
+    app_algorithm: str | None = None
+    app_expire_time: int = 3600
 
     # mysql数据库配置
     db_user: str | None = None
     db_pass: str | None = None
     db_port: int = 3306
     db_host: str | None = None
+    db_name: str | None = None
 
     # class Config:
     #     env_file = ".env"

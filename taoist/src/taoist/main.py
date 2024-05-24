@@ -14,7 +14,7 @@ app = FastAPI(
     description=settings.app_description,
 )
 
-app.include_router(router)
+app.include_router(router, prefix=settings.app_prefix)
 
 TAOIST = r"""
 @@@@@@@@@@@@       @@@@@       @@@@@@@@@@@    @@@@@    @@@@@@@@@@@ @@@@@@@@@@@@         _____
@@ -43,7 +43,7 @@ def main():
     )
 
     try:
-        logger.info(f"Server Start On http://{settings.app_host}:{settings.app_port}")
+        logger.info(f"Server Start On: http://{settings.app_host}:{settings.app_port}")
         server = uvicorn.Server(setting)
         asyncio.run(server.run())
     except KeyboardInterrupt:
