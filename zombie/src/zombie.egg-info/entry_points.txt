@@ -1,2 +1,0 @@
-[console_scripts]
-zombie = zombie.main:main
