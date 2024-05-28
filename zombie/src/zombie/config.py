@@ -11,7 +11,7 @@ class Settings:
     env = load_dotenv(".env")
 
     # env配置项
-    app_port: int = os.getenv("app_port")
+    app_port: int = int(os.getenv("app_port"))
 
 
 @lru_cache

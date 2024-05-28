@@ -20,10 +20,10 @@ ZOMBIE = r"""
 
 def main():
     # 启动服务器
-    reactor.listenTCP(8000, ZombieFactory())
     log.startLogging(sys.stdout)
-    print(f"Zombie Run On: {settings.app_port}")
     print(ZOMBIE)
+    print(f"Zombie Run On: {settings.app_port}")
+    reactor.listenTCP(settings.app_port, ZombieFactory())
     reactor.run()
 
 
