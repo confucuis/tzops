@@ -2,6 +2,7 @@
 项目配置
 """
 
+import os
 from functools import lru_cache
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -12,12 +13,15 @@ class Settings(BaseSettings):
     与.env中的配置变量对应
     """
 
+    if not os.path.exists(".env"):
+        raise Exception(".env not exists!")
+
     model_config = SettingsConfigDict(
         env_file=".env", env_ignore_empty=True, extra="ignore"
     )
 
     # 应用配置
-    app_name: str = "^V^"
+    app_name: str = "^.^"
     app_debug: bool = True
     app_works: int = 1
     app_loglevel: str = "info"
